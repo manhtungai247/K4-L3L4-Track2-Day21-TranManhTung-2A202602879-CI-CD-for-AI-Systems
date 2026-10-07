@@ -77,14 +77,15 @@ Nếu hai lệnh chạy ở hai thời điểm khác nhau, được phép nộp 
 
 Chụp giao diện web của cloud storage (GCS / S3 / Azure Blob).
 
-Ảnh phải thấy rõ:
+Nếu các đường dẫn nằm ở nhiều màn hình, có thể nộp thành các file sau:
 
-- Thư mục `dvc/` chứa dữ liệu do DVC đẩy lên.
-- File model tại `artifacts/current/model.joblib`.
-- Tên bucket/container.
-
-Nếu hai đường dẫn nằm ở hai màn hình khác nhau, được phép nộp thành hai file
-`05a-storage-dvc.png` và `05b-storage-model.png`.
+- `05a-storage-dvc.png`: bucket name và prefix `dvc/` ở bucket root.
+- `05f-storage-dvc-files.png`: nội dung `dvc/files/` có prefix `md5/`; chụp tiếp bên trong `md5/` nếu cần chứng minh các object dữ liệu cụ thể.
+- `05g-storage-dvc-md5.png`: nội dung `dvc/files/md5/` có bốn prefix hash, xác nhận dữ liệu DVC đã được lưu trên S3.
+- `05b-storage-model.png`: breadcrumb `artifacts/current/` và file `model.joblib`.
+- `05c-storage-artifact-prefixes.png`: hai prefix `candidates/` và `current/` trong `artifacts/`.
+- `05d-storage-candidates.png`: các thư mục candidate theo commit SHA.
+- `05e-storage-candidate-model.png`: file `model.joblib` bên trong candidate của commit Bước 3.
 
 ---
 
