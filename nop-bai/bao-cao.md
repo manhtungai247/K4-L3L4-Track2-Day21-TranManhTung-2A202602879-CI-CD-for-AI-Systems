@@ -34,12 +34,12 @@ Lớp dương `target=1` chiếm khoảng 24,8% dữ liệu. Một mô hình lu�
 
 ## 4. So Sánh Bước 2 và Bước 3
 
-| Chạy tái lập cục bộ với cùng tham số và holdout | f1_score | accuracy |
+| Chạy tái lập cục bộ và CI với cùng tham số/holdout | f1_score | accuracy |
 |---|---:|---:|
 | Bước 2 (`train_batch1`, 22.361 mẫu) | 0.7149 | 0.8740 |
 | Bước 3 (`train_batch1` + `train_batch2`, 44.722 mẫu) | 0.7354 | 0.8820 |
 
-**Nhận xét:** Trong lần tái lập cục bộ, thêm dữ liệu cùng nguồn làm F1 tăng 0,0205 và accuracy tăng 0,0080; đây là kết quả quan sát được, không chứng minh mọi dữ liệu bổ sung đều cải thiện mô hình. Hai pipeline CI cho Bước 2 và Bước 3 đều hoàn thành Unit Test, Train, Quality Gate và Release. Mỗi lần chạy lưu `report.json` thành artifact `report` trên GitHub Actions để đối chiếu metric của runner.
+**Nhận xét:** Log CI xác nhận metric trùng với lần tái lập cục bộ. Khi thêm dữ liệu cùng nguồn, F1 tăng 0,0205 và accuracy tăng 0,0080; đây là kết quả quan sát được, không chứng minh mọi dữ liệu bổ sung đều cải thiện mô hình. Hai pipeline CI cho Bước 2 và Bước 3 đều hoàn thành Unit Test, Train, Quality Gate và Release. Mỗi lần chạy lưu `report.json` thành artifact `report` trên GitHub Actions.
 
 ## 5. Triển Khai và Kiểm Tra CI/CD
 
